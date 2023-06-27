@@ -36,92 +36,96 @@ public class ShippingListServiceDAOImp implements ShippingListServicDAO {
         return String.valueOf(randomNumber);
     }
 
-    @Override
-    public ShippingList getCargo(int userId, int cargoId) {
-        return null;
-    }
+
+
 
     @Override
-    public ShippingList saveCargo(ShippingList shippingList)throws RecordNotFoundException {
-
-
+    public ShippingList saveCargo(ShippingList shippingList) {
 
         ShippingList sh =shippingListRepo.save(shippingList);
-
-        if (sh!=null)
-            return sh;
-        else
-            throw new RecordNotFoundException("Record Not Found");
+        if(sh!=null)
+                return sh;
+            else
+                return null;
 
     }
 
     @Override
-    public ShippingList updateCargo(String shippingList, int userId, int cargoId) {
+    public ShippingList SaveOrUpdateShippingList(ShippingList shippingList) {
+
+
+        Optional<ShippingList> userOptional = shippingListRepo.findById(shippingList.getSlid());
+        ShippingList sl= userOptional.get();
+        if (sl!=null)
+            sl=shippingListRepo.save(sl);
+
+        return sl;
+    }
+
+    @Override
+    public boolean deleteShippingList(int id) {
+        Optional<ShippingList> userOptional =shippingListRepo.findById(id);
+        ShippingList sh=userOptional.get();
+        boolean flag =false;
+        if (sh!=null) {
+            shippingListRepo.deleteById(id);
+            flag=true;
+        } else {
+
+
+        }return flag;
+    }
+
+
+
+
+    @Override
+    public List<ShippingList> getShippingListByID(int id) {
+       // List<ShippingList>list=shippingListRepo.findById(id).get();
         return null;
     }
 
     @Override
-    public void deleteCargo(int userId, int cargoId) {
+    public ShippingList getShippingByID(int id) {
 
-    }
+            return shippingListRepo.findById(id).get();
+        }
 
-    @Override
-    public List<ShippingList> getUsers(int userId) {
-        return null;
-    }
 
-    @Override
-    public List<ShippingList> getCargo(int cargoId) {
-        return null;
-    }
+
+
 
     @Override
     public List<ShippingList> getAllShippingList() {
         List<ShippingList>shALL=shippingListRepo.findAll();
         return shALL;
     }
-    /*@Autowired
-    private ShippingListRepo ssRepo;
-    public List<ShippingList> getAllshippingList(){
-        return ssRepo.findAll();
-    }
 
-    public ShippingList save(ShippingList ship){
-        ShippingList list=ssRepo.save(ship);
-        if(list!=null){list=ssRepo.save(ship);
-        return list;}
-        return null;
+    @Override
+    public ShippingList findByTrackingNum(String trackingNum) throws RecordNotFoundException {
 
+    ShippingList list = shippingListRepo.findByTrackingNum(trackingNum);
 
-    }
-    public ShippingList saveOrUpdateShipping(ShippingList ship){
-        Optional<ShippingList> userOptional = ssRepo.findById(ship.getSlid());
-        ShippingList b= userOptional.get();
-        if (b!=null)
-            b=ssRepo.save(b);
-
-        return b;}
-
-    public void deleteShippingByID(Integer id)
-    {
-        ssRepo.deleteById(id);
-    }
+	    if (list!=null)
+            return list;
+	     else
+                 throw new RecordNotFoundException("Record Not Found");
 
 
+}
 
+    @Override
+    public List<ShippingList> findBySenderName(String SenderName) {
+        List<ShippingList> ulist = shippingListRepo.findBySenderName(SenderName);
 
-    public ShippingList getShippingById(Integer id ) {
-        return ssRepo.findById(id).get();
+        if (ulist!=null)
+            return ulist;
+        else
+            throw null;
+
     }
 
 
-    public int saveShipping(ShippingList ss){
 
-    	ShippingList saveSL=ssRepo.save(ss);
 
-	     if(saveSL!=null)
-            return 1;
-	       else
-            return 0;
-}*/
 }

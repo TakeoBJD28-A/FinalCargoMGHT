@@ -5,7 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 import javax.persistence.*;
+import java.time.ZoneId;
+import java.util.Date;
+
 
 @Data
 @AllArgsConstructor
@@ -33,20 +37,25 @@ import javax.persistence.*;
          private String trackingNum;
          @Column(name = "SENDER_NAME")
         private String senderName;
+         @Column(name = "SENDER_ID")
+         private int sender_ID;
          @Column(name = "CARGO_ID")
          private  int cargo_ID;
 
          @Column(name ="CARGO_Weight")
          private  double weight;
+         @Column(name ="STATUS")
+         private  String status;
 
-    /*@ManyToOne(optional = false)
-    @JoinColumn(name = "USERS_ID",referencedColumnName = "uid")
-    private Users users;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "CARGO_ID",referencedColumnName = "sbid")
-    private Cargo cargo;*/
-     
+
+
+
+
+
+
+
+
 
 }
 

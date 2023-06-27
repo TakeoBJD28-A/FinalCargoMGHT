@@ -30,7 +30,7 @@
     </li>
     </li>
     <li class="nav-item ">
-      <a class="nav-link"aria-current="page" href="#">Tracking list</a>
+      <a class="nav-link"aria-current="page" href="#">Track&Trace</a>
     </li>
   </ul>
   </ul>
@@ -42,43 +42,47 @@
 
 </nav>
 <div class="container my-5 p-5" style="border:1px solid black;">
-  <h4 class="text-center">Edit Policy Here</h4>
-  <form class="col-md-4 offset-md-4" th:action="@{/saveShipingListbyAdmin}" method="post" th:object="${pol}">
+  <h4 class="text-center">Edit Shipping list Here</h4>
+  <form class="col-md-4 offset-md-4" th:action="@{/saveShippingListByAdmin}" method="post" th:object="${pol}">
 
     <input type="hidden" name="slid" th:value="${pol.slid}"/>
     <div class="mb-3">
-      <label for="sender" class="form-label">sender
-      </label> <input type="text" class="form-control" name="sender" th:value="${pol.sender}">
+      <label for="senderName" class="form-label">senderName
+      </label> <input type="text" id="senderName"class="form-control" name="senderName" th:value="${pol.senderName}">
     </div>
+
+    <input type="hidden" name="sender_ID" th:value="${pol.sender_ID}"/>
+      <input type="hidden" name="cargo_ID" th:value="${pol.cargo_ID}">
+
     <div class="mb-3">
-      <label for="serviceCost" class="form-label">Cargo
-      </label> <input type="text" class="form-control" name="serviceCost" th:value="${pol.serviceCost}">
+      <label for="weight" class="form-label">CargoCost
+      </label> <input type="text" id="weight"class="form-control" name="weight" th:value="${pol.weight}">
     </div>
     <div class="mb-3">
       <label for="receiverName" class="form-label">ReceiverName
-      </label> <input type="text" class="form-control" name="receiverName" th:value="${pol.receiverName}">
+      </label> <input type="text" id="receiverName"class="form-control" name="receiverName" th:value="${pol.receiverName}">
     </div>
     <div class="mb-3">
       <label for="receiverEmail" class="form-label">receiverEmail
-      </label> <input type="text" class="form-control" name="receiverEmail" th:value="${pol.receiverEmail}">
+      </label> <input type="text" id="receiverEmail"class="form-control" name="receiverEmail" th:value="${pol.receiverEmail}">
     </div>
     <div class="mb-3">
       <label for="receiverAddress" class="form-label">reciverAddress
-      </label> <input type="text" class="form-control" name="receiverAddress" th:value="${pol.receiverAddress}">
+      </label> <input type="text" id="receiverAddress"class="form-control" name="receiverAddress" th:value="${pol.receiverAddress}">
     </div>
     <div class="mb-3">
       <label for="receiverPhone" class="form-label">reciverPhone
-      </label> <input type="text" class="form-control" name="receiverPhone" th:value="${pol.receiverPhone}">
+      </label> <input type="text"id="receiverPhone" class="form-control" name="receiverPhone" th:value="${pol.receiverPhone}">
     </div>
+
+
+      <input type="hidden"name="trackingNum" th:value="${pol.trackingNum}">
+
     <div class="mb-3">
-      <label for="trackingNum" class="form-label">TrackingNumber
-      </label> <input type="text" class="form-control" name="trackingNum" th:value="${pol.trackingNum}">
+      <label for="status" class="form-label">Status
+      </label> <input type="text" id="status"class="form-control" name="status" th:value="${pol.status}">
     </div>
-
-
-
-
-    <center><button type="submit" class="btn btn-primary">UpDate User</button></center>
+    <center><button type="submit" class="btn btn-primary">UpDate</button></center>
   </form>
 </div>
 

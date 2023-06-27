@@ -16,27 +16,23 @@
 
   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
     <li class="nav-item">
-      <a class="nav-link active" aria-current="page" href="/">Home</a>
+      <a class="nav-link active" aria-current="page" href="Admin">Home</a>
     </li>
 
     <li class="nav-item ">
-      <a class="nav-link"aria-current="page" href="#">Customer List</a>
+      <a class="nav-link"aria-current="page" href="getusers">Customer List</a>
     </li>
     <li class="nav-item ">
-      <a class="nav-link"aria-current="page" href="getCargo">Cargo</a>
+      <a class="nav-link"aria-current="page" href="getCargo">Cargo Service</a>
     </li>
+
     <li class="nav-item ">
-      <a class="nav-link"aria-current="page" href="getAllShipping">Shipping List</a>
-    </li>
-    <li class="nav-item ">
-      <a class="nav-link"aria-current="page" href="#">Shipping Tracking</a>
+      <a class="nav-link"aria-current="page" href="getAllTrackingInfo">Track&Trace</a>
     </li>
   </ul>
+
   <div>
-    <a class="nav-link" href="SignIn">Login</a>
-  </div>
-  <div>
-    <a class="nav-link " href="SignOut">SignOut</a>
+    <a class="nav-link " href="/">SignOut</a>
   </div>
 </nav>
 <div class ="container text-center my-5">
@@ -50,7 +46,8 @@
     <tr>
 
       <th scope="col">ID</th>
-      <th scope="col">User_Name</th>
+      <th scope="col">Customer_Name</th>
+      <th scope="col">sender_ID</th>
       <th scope="col">Cargo_ID</th>
       <th scope="col">Cargo Cost($)</th>
       <th scope="col">Receiver Name</th>
@@ -58,6 +55,7 @@
       <th scope="col"> Receiver Address</th>
       <th scope="col">Receiver Phone</th>
       <th scope="col"> tracking number</th>
+      <th scope="col">Status</th>
 
     </tr>
     </thead>
@@ -66,22 +64,25 @@
       <td th:text="${b.slid}"></td>
       <td th:text="${b.senderName}"></td>
       <td th:text="${b.cargo_ID}"></td>
+      <td th:text="${b.sender_ID}"></td>
       <td th:text="${b.weight}"></td>
       <td th:text="${b.receiverName}"></td>
       <td th:text="${b.receiverEmail}"></td>
       <td th:text="${b.receiverAddress}"></td>
       <td th:text="${b.receiverPhone}"></td>
       <td th:text="${b.trackingNum}"></td>
+      <td th:text="${b.status}"></td>
       <td>
         <a style="color:blue" th:href="@{/editShippingList/{slid}(slid=${b.slid})}"><i class="fa-solid fa-pen-to-square ms-4"></i></a>
-        <a style="color:red" th:href="@{/deleteShippingList/{slid}(uid=${b.slid})}"><i class="fa-solid fa-trash ms-4"></i></a></td>
+        <a style="color:red" th:href="@{/deleteShippingList/{slid}(slid=${b.slid})}"><i class="fa-solid fa-trash ms-4"></i></a>
+       <a style="color:red" th:href="@{/createTrackingInfo/{slid}(slid=${b.slid})}">CrT&T</a></td>
     </tr>
 
 
 
     <tr>
       <td><a class="nav-link " href="pdfFile"> <i class="fa-solid fa-print"></i></a></td>
-    </tr> -->
+    </tr>
     </tr>
     </tbody>
   </table>

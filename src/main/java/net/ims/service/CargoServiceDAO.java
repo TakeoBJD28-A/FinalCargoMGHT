@@ -5,10 +5,10 @@ import net.ims.entity.Cargo;
 import java.util.List;
 
 public interface CargoServiceDAO {
-    public void saveCargo(Cargo s);
-    public List<Cargo> getAllCargo();
-    public Cargo getCargoById(int id);
-    public void deleteById(int id);
+     void saveCargo(Cargo s);
+     List<Cargo> getAllCargo();
+     Cargo getCargoById(int id);
+     void deleteById(int id);
 
 
 }

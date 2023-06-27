@@ -18,6 +18,7 @@ public interface UserDAO  {
 	public boolean deleteUser(Integer id);
 			
 	public Users findByEmail(String email)throws RecordNotFoundException;
+	public Users getUserByIdd(int uid)throws RecordNotFoundException;
 			
 			
 			

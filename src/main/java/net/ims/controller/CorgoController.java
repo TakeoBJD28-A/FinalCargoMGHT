@@ -65,6 +65,6 @@ public class CorgoController {
 	public ModelAndView getAllService_Costmeb()
 	{
 		List<Cargo>clist=sservice.getAllCargo();
-		return new ModelAndView("CargoDisplayMember.html","scat",clist);
+		return new ModelAndView("CargoDisplayMember","scat",clist);
 	}
 }

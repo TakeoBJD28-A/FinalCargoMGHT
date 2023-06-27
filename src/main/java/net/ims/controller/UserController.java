@@ -191,7 +191,8 @@ public class UserController {
 		    } catch (RecordNotFoundException e) {
 		        model.addAttribute("error", "User not found");
 		    }
-		    return "Displaypassword";
+			return "loginnew";
+
 		}
 
 	}

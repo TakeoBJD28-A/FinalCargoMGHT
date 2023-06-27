@@ -12,78 +12,41 @@
     
  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 
-         <a class="navbar-brand" href="#">Cargo Management System</a>
- 
-    
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
        
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
            
-            <li class="nav-item ">
-<<<<<<< HEAD
-            <a class="nav-link"aria-current="page" href="getCargo">Cargo</a>
-=======
-            <a class="nav-link"aria-current="page" href="aboutus">About Us</a>
->>>>>>> 1e73d58c559396a4371db46a95369ad85f06b014
-            </li>
-           
+
             <li class="nav-item ">
             <a class="nav-link"aria-current="page" href="getSubCategoryUser">Teams</a>
             </li>
-           
-               <li class="nav-item ">
-            <a class="nav-link"aria-current="page" href="getPolicyListUser">Customer Service</a>
-            </li>
+
+          <li class="nav-item ">
+              <a class="nav-link"aria-current="page" href="aboutus">About Us</a>
+
+          </li>
        
           </ul>
-            
-            
-            
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
+           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
             <li class="nav-item">
             <a class="nav-link" aria-current="page" href="SignIn">Login</a>
             </li>
-          
          </ul>
-
-      </nav>
-      
-     
-     <!--  </ul>
-
-       <a class="nav-link" href="SignIn">Login</a>
-   
-     
-<<<<<<< HEAD
-      </nav>
-        <div class ="container">
-  <!-- when u call SignOut then this page load and call /save method to save in DB -->      
-         <form class="col-md-4 offset-md-4" th:action="@{/saveUser}" method="post" style="background-color: #f1f1f1; padding: 20px;">
-      
-         <div class="form-group">
-        <label for="uname">User Name</label>
-        <input type="text" id="uname" name="uname" placeholder=" User Name">
-        </div>
-         <div class="form-group">
-        <label for="address">Address</label>
-        <input type="text" id="address" name="address" placeholder=" address">
-=======
-      </nav> -->
-      
+ </nav>
       <div class ="container">
-      <form th:action="@{/save}" method="post">
-      <h2>Registration</h2>
+       <form th:action="@{/saveUser}" method="post">
+        <h2>Registration</h2>
         <div class ="content">
         <div class="input-box">
-        <label for="fname">User Name</label>
+        <label for="uname">User Name</label>
         <input type="text" id="uname" name="uname" placeholder="Enter Username" required>
         </div>
          <div class="input-box">
         <label for="address">Address</label>
         <input type="text" id="address" name="address" placeholder="Enter Address" required>
->>>>>>> 1e73d58c559396a4371db46a95369ad85f06b014
+
         </div>
         <div class="input-box">
         <label for="email">Phone</label>
@@ -94,26 +57,35 @@
         <label for="email">Email</label>
         <input type="email" id="email" name="email" placeholder="Enter your valid email address" required>
         </div>
+            <div class="input-box">
+                <label for="city">CITY</label>
+                <input type="text" id="city" name="city" placeholder="Enter your valid city " required>
+            </div> <div class="input-box">
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" placeholder="Enter your valid state" required>
+        </div>
+        </div> <div class="input-box">
+          <label for="zip">Zip</label>
+          <input type="number" id="zip" name="zip" placeholder="Enter your valid zip code " required>
+      </div>
         <div class="input-box">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Enter New Password" required>
-      </div>
-      <div class="input-box">
+        <input type="text" id="password" name="password" placeholder="Enter New Password" required>
+        </div>
+        <div class="input-box">
         <label for="confirmPassword">Confirm Password</label>
-        <input type="password" id="password" name="confirmPassword" placeholder="Confirm your password" required>
+        <input type="text" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
       </div>
-      
-      <span class="gender-title">Gender</span>
-      <div class="gender-category">
-      <input type="radio" name="gender" id="male">
-      <label for="gender">Male</label>
-      <input type="radio" name="gender" id="female">
-      <label for="gender">Female</label>
-      <input type="radio" name="gender" id="other">
-      <label for="gender">Other</label>
-      
-     </div>
-      </div>
+
+            <span class="gender-title">Gender</span>
+            <div class="gender-category">
+                <input type="radio" name="gender" id="male">
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="female">
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="other">
+                <label for="other">Other</label>
+            </div>
       <div class="alert">
       <p>By Clicking sign up,you agree to our <a href="#">Terms, </a><a href="#">Privacy Policy,</a> and <a href="#">Cookies Policy.></a>You may receive SMS notifications from us and can opt out at any time.</p>
       </div>
@@ -121,8 +93,6 @@
       <div class="button-container">
         <button type="submit">Register</button>
       </div>
-  
- 
     </form>
         </div>
         

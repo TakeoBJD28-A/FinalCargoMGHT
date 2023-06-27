@@ -30,6 +30,15 @@ public class Users {
 	private long phone;
 	@Column(name="EMAIL")
 	private String email;
+	@Column(name="CITY")
+	private String city;
+	@Column(name="STATE")
+	private String state;
+	@Column(name="ZIP")
+	private String zip;
+	@Column(name="GENDER")
+	private String gender;
+
 	@Column(name="PASSWORD")
 	private String password;
 	@Column (name="ROLE_ID")

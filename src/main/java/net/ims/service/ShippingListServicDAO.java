@@ -9,12 +9,13 @@ import java.util.List;
 public interface ShippingListServicDAO  {
 
 
-        ShippingList getCargo(int userId, int cargoId);
-        ShippingList saveCargo(ShippingList shippingList)throws RecordNotFoundException;
-        ShippingList updateCargo(String shippingList, int userId, int cargoId);
-        void deleteCargo(int userId, int cargoId);
-        List<ShippingList> getUsers(int userId);
-        List<ShippingList> getCargo(int cargoId);
+        public ShippingList getShippingByID(int id);
+        public ShippingList saveCargo(ShippingList shippingList);
+        public ShippingList SaveOrUpdateShippingList(ShippingList shippingList);
+        public boolean deleteShippingList(int id);
+        public List<ShippingList> getShippingListByID(int id);
         List<ShippingList> getAllShippingList();
+        ShippingList findByTrackingNum(String trackingNum)throws RecordNotFoundException;
+        List<ShippingList> findBySenderName(String SenderName);
     }
 

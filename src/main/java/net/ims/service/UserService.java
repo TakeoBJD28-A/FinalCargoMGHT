@@ -13,7 +13,7 @@ import net.ims.exceptionalhandler.RecordNotFoundException;
 import net.ims.repo.UserRepo;
 
 @Service
-public class UserService {
+public class UserService implements UserDAO{
 @Autowired
 private UserRepo uRepo;
 
@@ -78,12 +78,22 @@ public List<Users> getAllUsers()
 	    if (user!=null) 
 	        return user;
 	     else 
-	        throw new RecordNotFoundException("Book Not Found");
+	        throw new RecordNotFoundException("User Not Found");
 
 		
 	}
-	
-		
-	
-	
+
+	@Override
+	public Users getUserByIdd(int uid) throws RecordNotFoundException {
+		Optional<Users> userOptional = uRepo.findById(uid);
+		Users user=userOptional.get();
+
+		if (user!=null)
+			return user;
+		else
+			throw new RecordNotFoundException("User Not Found");
+
+	}
+
+
 }
