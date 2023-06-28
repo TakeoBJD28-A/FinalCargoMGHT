@@ -41,6 +41,8 @@ public class Users {
 
 	@Column(name="PASSWORD")
 	private String password;
+	@Column(name="CONFIRMPASSWORD")
+	private String confirmPassword;
 	@Column (name="ROLE_ID")
 	private int role_id=2;
 

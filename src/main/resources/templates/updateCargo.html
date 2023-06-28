@@ -4,7 +4,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-
+          <link rel="stylesheet" type="text/css" href="css/reg.css">
 
     <title>Cargo Management System</title>
 </head>
@@ -30,37 +30,43 @@
             <a class="nav-link" aria-current="page" href="getAllTrackingInfo"> Track&Trace</a>
         </li>
     </ul>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
+        <li class="nav-item">
+         <a class="nav-link" aria-current="page" href="/">SignOut</a>
+        </li>
+         </ul>
     </ul>
-    <div>
-        <a class="nav-link " href="SignOut">SignOut</a>
-    </div>
+    
 
 </nav>
 
 
       <div class="container">
 
-         <div class="container my-5 p-5" style="border:1px solid black">
-             <h4 class="text-center">Edit Cost Here</h4>
+         
+            
 
-             <form class="col-md-4 offset-md-4" th:action="@{/saveCargo}" method="post" th:object="${scat}">
-
+             <form th:action="@{/saveCargo}" method="post" th:object="${scat}">
+                <h2>Edit Cost Here</h2>
+                <div class ="content">
                  <input type="hidden" name="sbid" th:value="${scat.sbid}"/>
-                 <div class="mb-3">
-                     <label for="weight" class="form-label">Weight
-                     </label> <input type="text"id="weight"  name="weight" th:value="${scat.weight}">
+                 <div class="input-box">
+                     <label for="weight" class="form-label">Weight</label>
+                     </label> <input type="text"id="weight"  name="weight"  placeholder = "Enter Weight" th:value="${scat.weight}">
                  </div>
-                 <div class="mb-3">
-                     <label for="cost" class="form-label">Cost($)
-                     </label> <input type="text"id="cost"  name="cost" th:value="${scat.cost}">
+                 <div class="input-box">
+                     <label for="cost" class="form-label">Cost($)</label>
+                     </label> <input type="text"id="cost"  name="cost"  placeholder = "Enter Cost" th:value="${scat.cost}">
                  </div>
-                 <div class="mb-3">
-                     <label for="description" class="form-label">Description
-                     </label> <input type="text" id="description" name="description" th:value="${scat.description}">
+                 <div class="input-box">
+                     <label for="description" class="form-label">Description</label>
+                     </label> <input type="text" id="description" name="description" placeholder = "Enter Description" th:value="${scat.description}">
                  </div>
 
-
+                 <div class="button-container">
                  <button type="submit" class="btn btn-primary">UpDate Cost</button>
+                 </div>
+                 </div>
              </form>
          </div>
 </body>
